@@ -44,7 +44,7 @@
       padding: 8px 20px;
       border-radius: 25px;
       transition: all 0.3s ease;
-      cursor: cursor;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -72,16 +72,19 @@
     }
 
     .section {
-      display: none;
       opacity: 0;
-      transition: opacity 1s ease, transform 1s ease;
-      transform: translateY(30px);
+      pointer-events: none;
+      position: absolute;
+      width: 100%;
+      top: 160px; /* adjust depending on header+nav height */
+      left: 0;
+      transition: opacity 0.8s ease;
     }
 
     .section.active {
-      display: block;
       opacity: 1;
-      transform: translateY(0);
+      pointer-events: auto;
+      position: relative;
     }
 
     .dress-list {
@@ -96,6 +99,8 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
@@ -114,6 +119,23 @@
       margin: 10px;
       font-size: 1.1em;
       color: #0077b6;
+      flex-grow: 1;
+    }
+
+    .details-button {
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .details-button:hover {
+      background-color: #0077b6;
     }
   </style>
 </head>
@@ -137,18 +159,22 @@
       <div class="dress-item">
         <img src="Floral_Summer_Dress.jpg" alt="Floral Summer Dress">
         <h3>Floral Summer Dress</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Elegant_Evening_Gown.jpg" alt="Elegant Evening Gown">
         <h3>Elegant Evening Gown</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Casual_Summer_Dress.jpg" alt="Casual Summer Dress">
         <h3>Casual Summer Dress</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Office_Wear_Dress.jpg" alt="Office Wear Dress">
         <h3>Office Wear Dress</h3>
+        <button class="details-button">Click for Details</button>
       </div>
     </div>
   </div>
@@ -160,18 +186,22 @@
       <div class="dress-item">
         <img src="Classic_Formal_Suit.jpg" alt="Formal Suit">
         <h3>Classic Formal Suit</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Casual_Summer_Shirt.jpg" alt="Casual Shirt">
         <h3>Casual Summer Shirt</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Stylish_Jacket.jpg" alt="Stylish Jacket">
         <h3>Stylish Jacket</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Jeans.jpg" alt="Jeans & T-Shirt">
         <h3>Jeans & T-Shirt</h3>
+        <button class="details-button">Click for Details</button>
       </div>
     </div>
   </div>
@@ -183,14 +213,17 @@
       <div class="dress-item">
         <img src="Colorful_Party_Dress.jpg" alt="Colorful Party Dress">
         <h3>Colorful Party Dress</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="Comfy_Kids.jpg" alt="Kids T-shirt">
         <h3>Comfy Kids T-shirt</h3>
+        <button class="details-button">Click for Details</button>
       </div>
       <div class="dress-item">
         <img src="kids_rompers.jpg" alt="Cute Baby Romper">
         <h3>Kids' Romper</h3>
+        <button class="details-button">Click for Details</button>
       </div>
     </div>
   </div>
@@ -206,7 +239,7 @@
 
     setTimeout(() => {
       document.getElementById(sectionId).classList.add('active');
-    }, 200);
+    }, 100);
   }
 </script>
 
